@@ -1,29 +1,37 @@
 import React from 'react';
 
-// import { Container } from './styles';
+import { AnswerObject } from './../../API';
+import { AnswersHolder, Answer, Question, Stamp } from './styles';
 
 type Props = {
     question: string;
     answers: string[];
-    callback: any;
-    userAnswer: boolean;
+    callback: (e: React.MouseEvent<HTMLButtonElement>) => void;
+    userAnswer: AnswerObject | undefined;
     questionNumber: number;
     totalQuestions: number;
 }
 
 const QuestionCard: React.FC<Props> = ({ question, answers, callback, userAnswer, questionNumber, totalQuestions }) => {
     return(
-        <div>
-            <p className="number">Question: {questionNumber} / {totalQuestions}</p>
-            <p className="question">{question}</p>
-            <div className="answers">
+        <>
+            <Stamp className="number">Question: {questionNumber} / {totalQuestions}</Stamp>
+            <Question className="question">{question}</Question>
+            <AnswersHolder className="answers">
                 {answers.map(answer => (
-                    <button disabled={userAnswer} onClick={callback}>
+                    <Answer 
+                        key={answer} 
+                        disabled={!!userAnswer} 
+                        value={answer} 
+                        onClick={callback}
+                        correct={userAnswer?.correctAnswer === answer}
+                        userClicked={userAnswer?.answer === answer}
+                    >
                         {answer}
-                    </button>
+                    </Answer>
                 ))}
-            </div>
-        </div>
+            </AnswersHolder>
+        </>
     );
 }
 
