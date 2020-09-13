@@ -3,17 +3,22 @@ import styled from 'styled-components';
 export const WrapperLeft = styled.div`
     background-color: #cf4939;
     width: 50%;
-    padding: 50px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 `;
 
 export const WrapperRight = styled.div`
     background-color: #533ed4;
     width: 50%;
-    padding: 50px;
+    padding: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    position: relative;
 `;
 
 export const Container = styled.div`
@@ -41,6 +46,7 @@ export const Title = styled.h1`
     margin-bottom: 30px;
     color: #fff;
     width: 100%;
+    text-align: center;
 `;
 
 export const NextButton = styled.button`
@@ -52,6 +58,9 @@ export const NextButton = styled.button`
     border: 0;
     border-radius: 10px;
     cursor: pointer;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
 `;
 
 export const Score = styled.h3`

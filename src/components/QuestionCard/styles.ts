@@ -30,12 +30,13 @@ export const Answer = styled.button<AnswerButtonProps>`
     border: 0;
     cursor: pointer;
     border-radius: 10px;
+    font-size: 14px;
 `;
 
 export const Question = styled.p`
     color: #fff;
-    font-size: 15px;
-    line-height: 24px;
+    font-size: 20px;
+    line-height: 28px;
     margin-bottom: 20px;
     text-align: center;
 `;
