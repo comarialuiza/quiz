@@ -16,7 +16,7 @@ const QuestionCard: React.FC<Props> = ({ question, answers, callback, userAnswer
     return(
         <>
             <Stamp className="number">Question: {questionNumber} / {totalQuestions}</Stamp>
-            <Question className="question">{question}</Question>
+            <Question className="question" dangerouslySetInnerHTML={{ __html: question }} />
             <AnswersHolder className="answers">
                 {answers.map(answer => (
                     <Answer 
@@ -26,9 +26,8 @@ const QuestionCard: React.FC<Props> = ({ question, answers, callback, userAnswer
                         onClick={callback}
                         correct={userAnswer?.correctAnswer === answer}
                         userClicked={userAnswer?.answer === answer}
-                    >
-                        {answer}
-                    </Answer>
+                        dangerouslySetInnerHTML={{ __html: answer }}
+                    />
                 ))}
             </AnswersHolder>
         </>
